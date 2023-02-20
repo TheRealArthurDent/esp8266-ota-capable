@@ -4,7 +4,7 @@
 #include "led.h"
 #include "debug.h"
 #include "wifi-connection.hpp"
-#include "dummy-wifi-dependent.hpp"
+#include "ota-handler.hpp"
 
 #define BLINK_INTERVAL 2500
 
@@ -19,12 +19,8 @@ void setup()
   digitalWrite(led_built_in_Node, HIGH);
   digitalWrite(led_built_in_ESP, HIGH);
 
-  DummyWifiDependent dependent1;
-  DummyWifiDependent dependent2;
-
   std::list<WifiDependent *> deps;
-  deps.push_back(&dependent1);
-  deps.push_back(&dependent2);
+  deps.push_back(&OtaHandler::getInstance());
 
   WifiConnection::getInstance().init(deps);
 }
@@ -33,6 +29,7 @@ void setup()
 void loop()
 {
   blinkLed();
+  OtaHandler::getInstance().handleUpload();
 }
 
 void blinkLed()

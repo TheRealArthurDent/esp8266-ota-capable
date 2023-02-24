@@ -7,14 +7,12 @@
  * But who cares as long as it works, right?            *
  ********************************************************/
 
-const char otaPassword[] = SECRET_OTA_PASSWORD;
-
 // cppcheck-suppress unusedFunction
 void OtaHandler::onWifiConnectionEstablished()
 {
   DEBUG_PRINTLN("OtaHandler connected!");
 
-  ArduinoOTA.setPassword(otaPassword);
+  ArduinoOTA.setPassword(SECRET_OTA_PASSWORD);
   ArduinoOTA.setPort(8266);
 
   ArduinoOTA.onStart([]()

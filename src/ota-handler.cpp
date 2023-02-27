@@ -13,7 +13,7 @@ void OtaHandler::onWifiConnectionEstablished()
   DEBUG_PRINTLN("OtaHandler connected!");
 
   ArduinoOTA.setPassword(SECRET_OTA_PASSWORD);
-  ArduinoOTA.setPort(8266);
+  ArduinoOTA.setPort(SECRET_OTA_PORT);
 
   ArduinoOTA.onStart([]()
                      {

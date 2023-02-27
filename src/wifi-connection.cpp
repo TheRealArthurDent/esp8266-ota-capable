@@ -2,23 +2,19 @@
 #include <Ticker.h>
 #include "led.h"
 
-#define FLASH_INTERVAL 250
+const int FLASH_INTERVAL = 250;
 
 WiFiEventHandler wifiConnectHandler;
 WiFiEventHandler wifiDisconnectHandler;
 // Ticker wifiReconnectTimer;
 
-const char wifiSsid[] = SECRET_WIFI_SSID;
-const char wifiPass[] = SECRET_WIFI_PASS;
-const char hostname[] = SECRET_HOSTNAME;
-
 void WifiConnection::init()
 {
   DEBUG_PRINT("Connecting to ");
-  DEBUG_PRINTLN(wifiSsid);
+  DEBUG_PRINTLN(SECRET_WIFI_SSID);
 
   WiFi.mode(WIFI_STA);
-  WiFi.hostname(hostname);
+  WiFi.hostname(SECRET_HOSTNAME);
   wifiConnectHandler = WiFi.onStationModeGotIP(onWifiConnect);
   wifiDisconnectHandler = WiFi.onStationModeDisconnected(onWifiDisconnect);
   connect();
@@ -59,7 +55,7 @@ void WifiConnection::notifyDependentsDisconnected()
 void WifiConnection::connect()
 {
 
-  WiFi.begin(wifiSsid, wifiPass);
+  WiFi.begin(SECRET_WIFI_SSID, SECRET_WIFI_PASS);
 
   while (WiFi.status() != WL_CONNECTED)
   {
@@ -74,7 +70,7 @@ void WifiConnection::connect()
 void WifiConnection::onWifiConnect(const WiFiEventStationModeGotIP &event)
 {
   DEBUG_PRINT("Connected to WiFi ");
-  DEBUG_PRINTLN(wifiSsid);
+  DEBUG_PRINTLN(SECRET_WIFI_SSID);
   DEBUG_PRINT("IP address: ");
   DEBUG_PRINTLN(WiFi.localIP());
 
@@ -85,7 +81,7 @@ void WifiConnection::onWifiConnect(const WiFiEventStationModeGotIP &event)
 void WifiConnection::onWifiDisconnect(const WiFiEventStationModeDisconnected &event)
 {
   DEBUG_PRINTLN("Disconnected from WiFi ");
-  DEBUG_PRINTLN(wifiSsid);
+  DEBUG_PRINTLN(SECRET_WIFI_SSID);
 
   getInstance().setConnected(false);
   getInstance().notifyDependentsDisconnected();

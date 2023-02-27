@@ -20,9 +20,12 @@ public:
   }
   // hide constructor, copy constructor and = operator
 private:
-  WifiConnection() = default;             // hide default constructor
-  WifiConnection(WifiConnection const &); // Don't implement.
-  void operator=(WifiConnection const &); // Don't implement.
+  WifiConnection() = default;                 // hide default constructor
+  WifiConnection(WifiConnection const &);     // Don't implement.
+  WifiConnection(WifiConnection &&) noexcept; // Don't implement.
+  void operator=(WifiConnection const &);     // Don't implement.
+  void operator=(WifiConnection &&) noexcept; // Don't implement.
+  ~WifiConnection() = default;                // Don't implement.
 
   // normal methods
 public:

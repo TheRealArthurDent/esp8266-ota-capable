@@ -6,7 +6,7 @@
 #include "wifi-connection.hpp"
 #include "ota-handler.hpp"
 
-#define BLINK_INTERVAL 2500
+const int BLINK_INTERVAL = 2500;
 
 // cppcheck-suppress unusedFunction
 void setup()

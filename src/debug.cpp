@@ -4,7 +4,7 @@
 void initDebugging()
 {
 #ifdef DEBUG
-  Serial.begin(115200);
+  Serial.begin(MONITOR_SPEED);
 #endif
   DEBUG_PRINTLN("Debugging initialized.");
   DEBUG_PRINTLN();

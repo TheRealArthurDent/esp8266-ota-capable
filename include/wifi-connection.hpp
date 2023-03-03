@@ -1,12 +1,16 @@
 #pragma once
 
-#include "ESP8266WiFi.h"
+#include <ESP8266WiFi.h>
+#include <Ticker.h>
 #include <list>
 #include <vector>
 #include "wifi-dependent.hpp"
 
 class WifiConnection
 {
+  WiFiEventHandler wifiConnectHandler;
+  WiFiEventHandler wifiDisconnectHandler;
+  // Ticker wifiReconnectTimer;
 
   bool connected = false;
   std::vector<WifiDependent *> dependents;
@@ -20,9 +24,12 @@ public:
   }
   // hide constructor, copy constructor and = operator
 private:
-  WifiConnection() = default;             // hide default constructor
-  WifiConnection(WifiConnection const &); // Don't implement.
-  void operator=(WifiConnection const &); // Don't implement.
+  WifiConnection() = default;                 // hide default constructor
+  WifiConnection(WifiConnection const &);     // Don't implement.
+  WifiConnection(WifiConnection &&) noexcept; // Don't implement.
+  void operator=(WifiConnection const &);     // Don't implement.
+  void operator=(WifiConnection &&) noexcept; // Don't implement.
+  ~WifiConnection() = default;                // Don't implement.
 
   // normal methods
 public:

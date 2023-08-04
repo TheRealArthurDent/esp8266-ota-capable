@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['otahandler_0',['OtaHandler',['../classOtaHandler.html',1,'']]]
+  ['metronom_0',['Metronom',['../classMetronom.html',1,'']]]
 ];

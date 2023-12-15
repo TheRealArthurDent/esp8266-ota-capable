@@ -13,7 +13,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4.1.1
-    - uses: cpp-linter/cpp-linter-action@v2.7.1
+    - uses: cpp-linter/cpp-linter-action@v2.7.3
       id: linter
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

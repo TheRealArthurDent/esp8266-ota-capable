@@ -58,7 +58,7 @@ void OtaHandler::onWifiConnectionEstablished()
 /**
  * Simply forwards uploads to ArduinoOTA.
  */
-void OtaHandler::handleUpload()
+const void OtaHandler::handleUpload()
 {
   if (ready)
   {

@@ -23,7 +23,7 @@ void setup()
   digitalWrite(led_built_in_Node, HIGH);
   digitalWrite(led_built_in_ESP, HIGH);
 
-  std::list<WifiDependent *> deps;
+  std::list<WifiDependent *> deps(1);
   deps.push_back(&OtaHandler::getInstance());
 
   WifiConnection::getInstance().init(deps);

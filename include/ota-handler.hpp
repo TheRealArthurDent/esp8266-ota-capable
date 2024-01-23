@@ -32,5 +32,5 @@ private:
 public:
   void onWifiConnectionEstablished() override;
 
-  void handleUpload();
+  const void handleUpload();
 };

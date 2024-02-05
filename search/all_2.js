@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['handleupload_0',['handleUpload',['../classOtaHandler.html#a058a9147d348ab6c2a01627a5a751931',1,'OtaHandler']]]
+  ['getinstance_0',['getInstance',['../classWifiConnection.html#a181f5c865433645790085eff6c3e2cd9',1,'WifiConnection']]]
 ];

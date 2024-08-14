@@ -26,7 +26,7 @@ jobs:
           sh migrate_to_ino.sh
 
       - name: Compile sketch
-        uses: arduino/compile-sketches@v1.1.1
+        uses: arduino/compile-sketches@v1.1.2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           fqbn: ${{ matrix.fqbn }}
